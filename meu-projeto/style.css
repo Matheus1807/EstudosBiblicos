@@ -1,0 +1,148 @@
+:root {
+  --bg: #0c0c0f;
+  --card: #181820;
+  --text: #eeeeee;
+  --muted: #bbbbbb;
+  --accent: #00ffe1;
+  --accent-glow: #00ffe188;
+  --font: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.gradient-bg {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at center, var(--accent-glow), transparent 70%);
+  filter: blur(120px);
+  animation: float 12s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(100px, 60px); }
+  100% { transform: translate(0, 0); }
+}
+
+header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-shadow: 0 0 15px var(--accent-glow);
+  animation: fadeIn 1s ease-out;
+}
+
+.sub {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.qa-card {
+  background-color: var(--card);
+  border: 1px solid #2b2b38;
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px #00000060;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.qa-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.qa-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.qa-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.qa-card span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 0.9rem;
+  color: #555;
+  opacity: 0.7;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .qa-card {
+    padding: 20px;
+  }
+}
+.qa-link {
+  text-decoration: none;
+  color: inherit;
+}

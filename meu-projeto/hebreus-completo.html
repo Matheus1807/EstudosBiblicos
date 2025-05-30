@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hebreus Completo</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000;
+      color: #000000;
+      padding: 20px;
+    }
+    header, footer {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    nav button {
+      padding: 10px 15px;
+      border: none;
+      background: #2196f3;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+    nav button:hover {
+      background: #1769aa;
+    }
+    nav button.active {
+      background: #0b4f87;
+    }
+    section.chapter {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      background: rgb(0, 0, 0);
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(20, 255, 255);
+      display: none;
+    }
+    h2.chapter-title {
+      margin-bottom: 15px;
+      color: #2196f3;
+    }
+    p.verse {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    a.link-home, a.link-summary {
+      display: inline-block;
+      margin: 10px 15px 0 15px;
+      color: #2196f3;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #2196f3;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a.link-home:hover, a.link-summary:hover {
+      background-color: #2196f3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hebreus - Livro Completo</h1>
+  <p>Navegue pelos capítulos e versículos</p>
+</header>
+
+<nav id="chapter-nav">
+  <button class="active" data-chapter="1">Capítulo 1</button>
+  <button data-chapter="2">Capítulo 2</button>
+  <button data-chapter="3">Capítulo 3</button>
+  <button data-chapter="4">Capítulo 4</button>
+  <button data-chapter="5">Capítulo 5</button>
+  <button data-chapter="6">Capítulo 6</button>
+  <button data-chapter="7">Capítulo 7</button>
+  <button data-chapter="8">Capítulo 8</button>
+  <button data-chapter="9">Capítulo 9</button>
+  <button data-chapter="10">Capítulo 10</button>
+  <button data-chapter="11">Capítulo 11</button>
+  <button data-chapter="12">Capítulo 12</button>
+  <button data-chapter="13">Capítulo 13</button>
+</nav>
+
+<!-- Capítulo 1 -->
+<section id="chapter-1" class="chapter" style="display: block;">
+  <h2 class="chapter-title">Hebreus 1</h2>
+  <p class="verse"><strong>1:</strong> ...</p>
+  <p class="verse"><strong>2:</strong> ...</p>
+  <p class="verse"><strong>3:</strong> ...</p>
+</section>
+
+<!-- Capítulo 2 -->
+<section id="chapter-2" class="chapter">
+  <h2 class="chapter-title">Hebreus 2</h2>
+  <p class="verse"><strong>1:</strong> ...versículos completos aqui...</p>
+</section>
+
+<!-- Capítulo 3 -->
+<section id="chapter-3" class="chapter">
+  <h2 class="chapter-title">Hebreus 3</h2>
+  <p class="verse"><strong>1:</strong> ...</p>
+  <p class="verse"><strong>2:</strong> ...</p>
+  <p class="verse"><strong>3:</strong> ...</p>
+</section>
+
+<!-- Rodapé com os mesmos botões -->
+<footer>
+  <a class="link-home" href="Hebreus.html">← Voltar para Hebreus</a>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('#chapter-nav button');
+  const chapters = document.querySelectorAll('.chapter');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const chapterToShow = button.getAttribute('data-chapter');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      chapters.forEach(chapter => {
+        chapter.style.display = chapter.id === `chapter-${chapterToShow}` ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
